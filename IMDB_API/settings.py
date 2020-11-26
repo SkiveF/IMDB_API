@@ -27,9 +27,11 @@ CORS_ORIGIN_ALLOW_ALL = True
 SECRET_KEY = '*l1*n*e4j%^aj3u7ux*uigsb2&3r0f=aoeg2vb1l==srgh-!n9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+
+
+ALLOWED_HOSTS = ['imdb_api.herokuapp.com']
 
 
 # Application definition
@@ -60,6 +62,7 @@ MIDDLEWARE = [
     # CORS
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'IMDB_API.urls'
@@ -137,6 +140,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+if os.environ.get('ENV') == 'PRODUCTION':
+
+    DEBUG = False
+
+    # Static files settings
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+    # Extra places for collectstatic to find static files.
+    STATICFILES_DIRS = (
+        os.path.join(PROJECT_ROOT, 'static'),
+    )
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    
+else:
+    DEBUG = True
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
