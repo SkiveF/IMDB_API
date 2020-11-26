@@ -31,7 +31,7 @@ SECRET_KEY = '*l1*n*e4j%^aj3u7ux*uigsb2&3r0f=aoeg2vb1l==srgh-!n9'
 
 
 
-ALLOWED_HOSTS = ['imdb-appp.herokuapp.com']
+ALLOWED_HOSTS = ['imdb-movies-api.herokuapp.com']
 
 
 # Application definition
