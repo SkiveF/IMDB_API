@@ -4,6 +4,7 @@ IMDB_API is a Rest API which deliver the top 1000 best rated film in the Interne
 #To Run the project
   
   pip install -r requirements.txt
+  
   python manage.py runserver 8080
 
 #The different URLs of the API will run in your localhost:8080
