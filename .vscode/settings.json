@@ -1,0 +1,5 @@
+{
+    "appService.showBuildDuringDeployPrompt": false,
+    "appService.defaultWebAppToDeploy": "/subscriptions/0443eb12-7bd6-44a2-8c3e-e4ed4537a30a/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/IMDBAPI",
+    "appService.deploySubpath": "."
+}
